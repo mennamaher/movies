@@ -1,0 +1,21 @@
+<nav class=" bg-secondary d-flex justify-content-between">
+  <h2 class=" p-3 ps-5">MoviesDB</h2>
+  <h3 class=" p-3">all your favourite movies are here!</h3>
+</nav>
+
+<div class="container-fluid pt-4 bg-secondary-subtle">
+  <div class="row">
+
+    @for (movie of dataMovies; track $index) {
+      <div class=" col-md-6 col-lg-3 ">
+        <div class=" bg-light">
+          <img [src]="imgpath + movie.poster_path" alt="imgg" class=" w-100">
+          <h3>{{movie.title? movie.title : movie.name}}</h3>
+          <p>{{movie.overview.split(" ").slice(0,20).join(" ")}}</p>
+          <p class=" fw-bold">vote: {{movie.vote_average}}</p>
+        </div>
+      </div>
+    }
+
+  </div>
+</div>
